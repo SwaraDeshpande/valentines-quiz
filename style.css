@@ -42,6 +42,12 @@ body {
     z-index: 10;
 }
 
+.hint {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #ff4d79;
+}
+
 button {
     padding: 12px 25px;
     font-size: 18px;
@@ -51,26 +57,20 @@ button {
     margin: 10px;
 }
 
-#yesBtn {
-    background-color: #ff4d79;
+.correct {
+    background-color: #4CAF50 !important;
     color: white;
 }
 
-#noBtn {
-    background-color: #999;
+.wrong {
+    background-color: #ff4d4d !important;
     color: white;
-    position: relative;
 }
 
 .quiz-photo {
     width: 100%;
     border-radius: 10px;
     margin-top: 15px;
-}
-
-.finish-btn {
-    background-color: #ff4d79;
-    color: white;
 }
 
 #finalScreen h1 {
