@@ -9,23 +9,35 @@
 
 <div class="hearts-container"></div>
 
+<!-- LANDING PAGE -->
 <div id="questionBox">
-    <h2>Will you be my Valentine? 💗</h2>
+    <h1 class="main-title">Will you be my Valentine? 💗</h1>
     <p class="hint">Try and select NO 😏</p>
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
+    <button id="yesBtn" class="big-btn">Yes</button>
+    <button id="noBtn" class="big-btn">No</button>
 </div>
 
+<!-- READY PAGE -->
+<div id="readyBox" style="display:none;">
+    <h2 class="ready-title">Time for POP‑QUIZ to prove your love 💘</h2>
+    <p class="ready-sub">Are you ready?</p>
+    <button id="readyBtn" class="big-btn">Ready</button>
+    <button id="notReadyBtn" class="big-btn grey-btn">Not Ready</button>
+</div>
+
+<!-- QUIZ PAGE -->
 <div id="quizBox" style="display:none;">
-    <h2 id="quizQuestion"></h2>
+    <h2 id="quizNumber"></h2>
+    <h3 id="quizQuestion"></h3>
+
+    <div id="imageRow" class="image-row"></div>
 
     <div id="options"></div>
-
-    <img id="quizImage" src="images/us-photo.jpeg" class="quiz-photo" style="display:none;">
 </div>
 
+<!-- FINAL PAGE -->
 <div id="finalScreen" style="display:none;">
-    <h1>🍑❤️ I Love❤️🍑</h1>
+    <h1>🍑❤️ I Love You ❤️🍑</h1>
     <p>Forever and always.</p>
 </div>
 

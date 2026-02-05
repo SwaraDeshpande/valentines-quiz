@@ -1,11 +1,18 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const readyBtn = document.getElementById("readyBtn");
+const notReadyBtn = document.getElementById("notReadyBtn");
+
 const questionBox = document.getElementById("questionBox");
+const readyBox = document.getElementById("readyBox");
 const quizBox = document.getElementById("quizBox");
 const finalScreen = document.getElementById("finalScreen");
+
+const quizNumber = document.getElementById("quizNumber");
 const quizQuestion = document.getElementById("quizQuestion");
 const optionsDiv = document.getElementById("options");
-const quizImage = document.getElementById("quizImage");
+const imageRow = document.getElementById("imageRow");
+
 const heartsContainer = document.querySelector(".hearts-container");
 
 // Floating hearts
@@ -27,48 +34,70 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
+// YES → show READY PAGE
+yesBtn.addEventListener("click", () => {
+    questionBox.style.display = "none";
+    readyBox.style.display = "block";
+});
+
+// NOT READY → stay here
+notReadyBtn.addEventListener("click", () => {
+    alert("Take your time, babe 😘");
+});
+
+// READY → start quiz
+readyBtn.addEventListener("click", () => {
+    readyBox.style.display = "none";
+    quizBox.style.display = "block";
+    loadQuestion();
+});
+
 // Quiz data
 const quizData = [
     {
         question: "Where did we meet first?",
         options: ["Coffee Shark", "Radio Coffee"],
         correct: [0],
-        showImage: false
+        images: ["images/q1-optionA.jpeg", "images/q1-optionB.jpeg"]
     },
     {
         question: "What is your Valentine’s favorite food?",
-        options: ["Spicy food", "Indian Food"],
-        correct: [0, 1],
-        showImage: false
+        options: ["Spicy Ramen", "Spicy Biryani"],
+        correct: [1],
+        images: ["images/q2-optionA.jpeg", "images/q2-optionB.jpeg"]
     },
     {
         question: "Where was this picture taken?",
         options: ["A bar in downtown Austin", "Bar in Rochester Hills"],
         correct: [0],
-        showImage: true
+        images: ["images/us-photo.jpeg"]
     }
 ];
 
 let currentQuestion = 0;
 
-// Start quiz
-yesBtn.addEventListener("click", () => {
-    questionBox.style.display = "none";
-    quizBox.style.display = "block";
-    loadQuestion();
-});
-
 // Load each question
 function loadQuestion() {
     const q = quizData[currentQuestion];
+
+    quizNumber.textContent = `Question ${currentQuestion + 1}`;
     quizQuestion.textContent = q.question;
 
-    optionsDiv.innerHTML = "";
-    quizImage.style.display = q.showImage ? "block" : "none";
+    // Load images
+    imageRow.innerHTML = "";
+    q.images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.classList.add("quiz-img");
+        imageRow.appendChild(img);
+    });
 
+    // Load options
+    optionsDiv.innerHTML = "";
     q.options.forEach((opt, index) => {
         const btn = document.createElement("button");
         btn.textContent = opt;
+        btn.classList.add("big-btn");
 
         btn.addEventListener("click", () => handleAnswer(btn, index));
 

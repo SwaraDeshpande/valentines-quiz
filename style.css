@@ -4,7 +4,7 @@ body {
     background: linear-gradient(180deg, #ffd6e7, #ffb6d6);
     height: 100vh;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 /* Floating hearts */
@@ -31,30 +31,57 @@ body {
     100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
 }
 
-#questionBox, #quizBox, #finalScreen {
+#questionBox, #quizBox, #finalScreen, #readyBox {
     background: white;
-    padding: 30px;
-    width: 380px;
+    padding: 35px;
+    width: 450px;
     margin: auto;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 18px;
+    box-shadow: 0 0 18px rgba(0,0,0,0.2);
     position: relative;
     z-index: 10;
 }
 
-.hint {
-    font-size: 14px;
+.main-title {
+    font-size: 42px;
     margin-bottom: 10px;
+    color: #ff3366;
+}
+
+.hint {
+    font-size: 20px;
+    margin-bottom: 25px;
     color: #ff4d79;
 }
 
-button {
-    padding: 12px 25px;
-    font-size: 18px;
+.ready-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.ready-sub {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.big-btn {
+    padding: 18px 40px;
+    font-size: 24px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
     margin: 10px;
+    background-color: #ff4d79;
+    color: white;
+}
+
+.grey-btn {
+    background-color: #888;
+}
+
+#noBtn {
+    background-color: #999;
+    position: relative;
 }
 
 .correct {
@@ -67,13 +94,14 @@ button {
     color: white;
 }
 
-.quiz-photo {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 15px;
+.image-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
 }
 
-#finalScreen h1 {
-    font-size: 40px;
-    color: #ff3366;
+.quiz-img {
+    width: 45%;
+    border-radius: 10px;
 }
